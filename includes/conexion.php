@@ -1,7 +1,7 @@
 <?php 
 	const SERVER = "localhost";
 	const USUARIO = "root";
-	const CLAVE = "vamolarenga";
+	const CLAVE = "";
 	const BASE = "distrimotor"; 
 
 	$link = mysqli_connect(SERVER, USUARIO, CLAVE, BASE);

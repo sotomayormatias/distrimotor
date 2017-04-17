@@ -22,20 +22,6 @@
 			cat_id = $("#cat_id").val();
 			prd_codigo = $("#prd_codigo").val();
 			prd_nombre = $("#prd_nombre").val();
-//
-//			$.ajax({
-//				url: "procesaBusqueda.php",
-//				type: "POST",
-//				dataType: "json",
-//				success: function(data){
-//					var rows = $.parseJSON(data);
-//					$("#tablaProductos tbody").empty();
-//					$.each(rows, function(index, value){
-//						$("#tablaProductos tbody").append("<tr><td></td></tr>")
-//					});
-//				},
-//				error: function(data){alert(data.message);}
-//			});
 
 			var jsonRequest = new XMLHttpRequest();
 			var url = "procesaBusqueda.php?cat_id="+ cat_id +"&prd_codigo="+ prd_codigo +"&prd_nombre="+ prd_nombre;
@@ -60,7 +46,7 @@
 	<form class="form-inline">
 		<div class="form-group filtro">
 			<label>Categoría</label>
-			<select class="form-control" name="cat_id" id="cat_id">
+			<select class="form-control" onchange="filtrarProductos()" name="cat_id" id="cat_id">
 				<?php 
 					echo "<option value='0'>Todas</option>";
 					while ($categoria = mysqli_fetch_assoc($resultCategorias)) 
@@ -74,11 +60,11 @@
 		</div>
 		<div class="form-group filtro">
 			<label>Código</label>
-			<input type="text" class="form-control" name="prd_codigo" id="prd_codigo" placeholder="Código">
+			<input type="text" class="form-control" onkeyup="filtrarProductos()" name="prd_codigo" id="prd_codigo" placeholder="Código">
 		</div>
 		<div class="form-group filtro">
 			<label>Nombre</label>
-			<input type="text" class="form-control" name="prd_nombre" id="prd_nombre" placeholder="Nombre">
+			<input type="text" class="form-control" onkeyup="filtrarProductos()" name="prd_nombre" id="prd_nombre" placeholder="Nombre">
 		</div>
 
 		<button type="button" class="btn btn-primary" id="btnFiltrar" onclick="filtrarProductos()">Filtrar</button>

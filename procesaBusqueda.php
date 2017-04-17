@@ -11,9 +11,9 @@
 	if($cat_id != 0)
 		$condition[] = " cat_id=". $cat_id;
 	if($prd_codigo != "")
-		$condition[] = " prd_codigo=". $prd_codigo;
+		$condition[] = " prd_codigo LIKE '%". $prd_codigo ."%'";
 	if($prd_nombre != "")
-		$condition[] = " prd_nombre=". $prd_nombre;
+		$condition[] = " prd_nombre LIKE '%". $prd_nombre ."%'";
 
 
 	if(!empty($condition))
